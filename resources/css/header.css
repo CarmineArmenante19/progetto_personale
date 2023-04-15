@@ -1,0 +1,29 @@
+/* Welcome header */
+.welcome-header{
+    margin-top: 100px;
+}
+
+.div_custom{
+    width: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+     right: -300px;
+    top: 100px; 
+  }
+
+ .element{ 
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color:var(--g);
+    scale: 0.75;
+} 
+
+@media screen and (max-width:600px){
+.animation-welcome{
+    margin-top: 80px;
+}
+}

@@ -1,0 +1,115 @@
+.navigation{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color:rgb(21, 209, 1);
+    border-radius: 60px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    display: flex;
+    box-shadow: inset 0px 0px 20px rgb(21, 25, 24);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.active{
+    width: 800px;
+}
+
+
+ .toggleMenu{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color:  rgb(21, 209, 1);
+    border-radius: 50%;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ .navigation.active .toggleMenu{
+    background-color: rgb(21, 209, 1);
+    transition-delay: 0s;
+    transform:translateY(60px);
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 10px 15px rgb(21, 25, 24);
+ }
+
+ .toggleMenu::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgb(21, 25, 24);
+    transform: translateY(-5px);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+ }
+
+ 
+ .toggleMenu::after{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgb(21, 25, 24);
+    transform: translateY(5px);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+
+ .navigation.active .toggleMenu::before{
+    transition-delay: 0s;
+    background-color: black;
+    transform: translateY(0px) rotate(45deg) scale(0.6);
+ }
+
+ 
+ .navigation.active .toggleMenu::after{
+    transition-delay: 0s;
+    background-color: black;
+    transform: translateY(0px) rotate(315deg) scale(0.6);
+}
+
+.li-drop{
+    list-style: none;
+    transition: 0.5s;
+    transform: scale(0);
+}
+
+.navigation.active .li-drop{
+    transition-delay: 0.75s;
+    display: flex;
+    transform: scale(1);
+}
+
+.anchor-drop{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.5s;
+    color: rgb(21, 25, 24);
+}
+
+.anchor-drop:hover{
+    color: rgb(21, 209, 1);
+    background-color: rgb(21, 25, 24);
+}
+
+
+.hover{
+    display: block;
+    margin-top: 35px;
+}
+

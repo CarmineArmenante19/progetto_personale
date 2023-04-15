@@ -1,0 +1,31 @@
+*{
+    font-family: 'Righteous', cursive;
+}
+body{
+    background-color: rgb(21, 25, 24);
+}
+/* Creazione classi personalizzate */
+:root{
+    --g:rgb(21, 209, 1);
+    --b:rgb(21, 25, 24);
+}
+
+.text-g{
+    color: var(--g);
+}
+
+.text-b{
+    color: var(--b);
+}
+
+.bg-g{
+    background-color: var(--g);
+}
+
+.bg-b{
+    background-color: var(--b);
+}
+
+h1,h2,h3,.h1,.h2,.h3{
+    font-family:'Play', sans-serif;
+}
