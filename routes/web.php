@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Mycontroller::class,'homepage'] )->name('homepage');
 
 // Article
+
+// User
+Route::delete('user/delete/',[Mycontroller::class,'user.eliminate'])->name('user.eliminate');

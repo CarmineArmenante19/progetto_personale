@@ -1,0 +1,15 @@
+.login-header{
+    margin-top: 70px;
+}
+
+.container-login-form{
+    margin-top: 100px;
+}
+
+.login-box{
+    height: 300px;
+    width: 300px;
+    padding: 15px;
+    border: 2px solid var(--g);
+    box-shadow: 5px -3px 10px 10px var(--g),-5px -3px 10px 10px var(--g);
+}

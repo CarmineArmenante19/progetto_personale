@@ -9,9 +9,9 @@
 }
 
 .btn-register{
-    padding: 20px;
+    padding: 10px;
     border: 2px solid var(--b);
-    border-radius: 50%;
+    border-radius: 20px;
     background-color: var(--g);
     transition: 0.5s;
 }
@@ -32,8 +32,8 @@
 
 .box-form-register{
     padding: 20px;
-    height: 600px;
-    width: 500px;
+    height: 680px;
+    width: 600px;
     position: relative;
     border: 3px solid var(--b);
     border-radius: 10px;
@@ -42,8 +42,8 @@
 
 .box-form-register::before{
     content: '';
-    height: 600px;
-    width: 500px;
+    height: 665px;
+    width: 600px;
     top: -50%;
     left: -50%;
     position: absolute;
@@ -54,8 +54,8 @@
 }
 .box-form-register::after{
     content: '';
-    height: 600px;
-    width: 500px;
+    height: 665px;
+    width: 600px;
     top: -50%;
     left: -50%;
     position: absolute;
@@ -75,3 +75,8 @@
     }
 }
 
+.p-form-register{
+    color: var(--w);
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}

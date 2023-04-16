@@ -8,6 +8,7 @@ body{
 :root{
     --g:rgb(21, 209, 1);
     --b:rgb(21, 25, 24);
+    --w:rgb(232, 232, 232);
 }
 
 .text-g{
@@ -16,6 +17,10 @@ body{
 
 .text-b{
     color: var(--b);
+}
+
+.text-w{
+    color: var(--w);
 }
 
 .bg-g{
