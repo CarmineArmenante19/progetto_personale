@@ -9,4 +9,15 @@
             </div>
         </div>
     </div>
+@elseif(Route::currentRouteName()=='register')
+<div class="container-fluid register-header">
+    <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="box-register">
+                    <h1 class="display-1 text-g text-center">{{$title}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endif    
