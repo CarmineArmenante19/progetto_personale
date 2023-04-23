@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('brand');
             $table->text('description');
             $table->float('price',0,2);
-            $table->string('vendor');
             $table->timestamps();
         });
     }

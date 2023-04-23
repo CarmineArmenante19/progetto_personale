@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -13,7 +14,8 @@ class ArticleController extends Controller
     public function index()
     {
         $title="Discover our products";
-        return view('article/index',compact('title'));
+        $articles=Article::latest()->paginate(6);
+        return view('article/index',compact('title','articles'));
     }
 
     /**
@@ -23,6 +25,12 @@ class ArticleController extends Controller
     {
         $title="Create your article";
         return view('article/create',compact('title'));
+    }
+
+
+    public function articleByCategory(Category $category)
+    {
+        return view('article/category',compact('category'));
     }
 
     /**
@@ -38,7 +46,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.detail',compact('article'));
     }
 
     /**

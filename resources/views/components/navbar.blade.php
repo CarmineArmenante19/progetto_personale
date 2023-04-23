@@ -14,6 +14,16 @@
                     </ul>
                 </li>
                 <li class="dropdown li-drop">
+                    <a href="" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu bg-g text-b">
+                        @foreach($categories as $category)
+                        <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('article.category',compact('category'))}}">{{$category->name}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="dropdown li-drop">
                     <a href="{{route('homepage')}}" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
                         Benvenuto:{{Auth::user()->name}}
                     </a>

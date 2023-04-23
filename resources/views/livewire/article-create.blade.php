@@ -43,13 +43,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
-                      <div class="mb-3">
-                        <label  class="form-label">Vendor</label>
-                        <input type="text" class="form-control @error('vendor') is-invalid @enderror" wire:model.debounce.lazy="vendor">
-                        @error('vendor')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror 
-                      </div>
                     <button type="submit" class="btn btn-primary">Publish</button>
                   </form>
             </div>

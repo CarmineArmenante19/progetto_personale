@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Article;
-use App\Models\Category;
 use Livewire\Component;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleCreate extends Component
 {
@@ -12,7 +13,6 @@ class ArticleCreate extends Component
     public $brand;
     public $description;
     public $price;
-    public $vendor;
 
     public $category;
 
@@ -22,7 +22,6 @@ class ArticleCreate extends Component
         'brand'=>'required|min:0|max:100',
         'description'=>'required|min:10|max:300',
         'price'=>'required',
-        'vendor'=>'required|min:0|max:30',
         'category'=>'required'
     ];
 
@@ -42,11 +41,14 @@ class ArticleCreate extends Component
                'brand'=>$this->brand,
                'description'=>$this->description,
                'price'=>$this->price,
-               'vendor'=>$this->vendor,
+               'user_id'=>Auth::user()->id
             ]
 
         );
         $this->reset();
+
+        return redirect(route('homepage'))->with('message','articolo pubblicato');
+        
     }
 
     public function updated($propertyName)
