@@ -31,4 +31,20 @@
         </div>
     </div>
 </div>
+@elseif(Route::currentRouteName()=='article.index')
+<div class="container-fluid index-container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-1 text-g">{{$title}}</h1>
+        </div>
+    </div>
+</div>
+@elseif(Route::currentRouteName()=='article.create')
+<div class="container-fluid create-container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-1 text-g">{{$title}}</h1>
+        </div>
+    </div>
+</div>
 @endif    

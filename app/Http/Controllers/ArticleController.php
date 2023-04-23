@@ -12,7 +12,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $title="Discover our products";
+        return view('article/index',compact('title'));
     }
 
     /**
@@ -20,7 +21,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $title="Create your article";
+        return view('article/create',compact('title'));
     }
 
     /**

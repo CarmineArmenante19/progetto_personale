@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Mycontroller;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Mycontroller::class,'homepage'] )->name('homepage');
 
 // Article
-
+Route::middleware(['auth'])->group(function()
+{
+    Route::get('/article/index',[ArticleController::class,'index'])->name('article.index');
+    Route::get('/article/create',[ArticleController::class,'create'])->name('article.create');
+});
 // User
 Route::delete('user/delete/',[Mycontroller::class,'user.eliminate'])->name('user.eliminate');

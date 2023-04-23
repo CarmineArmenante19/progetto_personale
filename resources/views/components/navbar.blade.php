@@ -8,9 +8,9 @@
                 <li class="li-drop"><a class="anchor-drop" href="{{route('login')}}">Login</a></li>
                 @else
                 <li class="dropdown li-drop" id="dropdown-navbar">
-                    <a href="" class="dropdown-toggle anchor-drop"  aria-expanded="false">Article</a>
+                    <a href="{{route('article.index')}}" class="dropdown-toggle anchor-drop"  aria-expanded="false">Article</a>
                     <ul class="dropdown-menu bg-g text-b">
-                        <li class="li-drop"><a class="dropdown-item anchor-drop" href="">Crea il tuo articolo</a></li>
+                        <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('article.create')}}">Crea il tuo articolo</a></li>
                     </ul>
                 </li>
                 <li class="dropdown li-drop">
