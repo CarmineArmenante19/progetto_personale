@@ -30,4 +30,16 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function toBeRevisionedCount()
+    {
+        return Article::where('is_accepted',null)->count();
+    }
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted=$value;
+        $this->save();
+        return true;
+    }
 }

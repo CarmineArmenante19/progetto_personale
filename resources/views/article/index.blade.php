@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-6">
-                <div class="d-flex justify-content-center">
+                <div>
                     {{$articles->links()}}
                 </div>
             </div>

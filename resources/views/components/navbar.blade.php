@@ -23,6 +23,15 @@
                         @endforeach
                     </ul>
                 </li>
+                @if(Auth::user()->is_revisor)
+                <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('revisor.index')}}">Zona revisore
+                <span>
+                    {{App\Models\Article::toBeRevisionedCount()}}
+                    <span>unread messages</span>
+                </span>
+                </a>
+            </li>
+            @endif
                 <li class="dropdown li-drop">
                     <a href="{{route('homepage')}}" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
                         Benvenuto:{{Auth::user()->name}}
@@ -31,28 +40,9 @@
                         <li class="li-drop" id="logout-button"><a class="dropdown-item anchor-drop" href="{{route('logout')}}">Logout</a>
                             <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">@csrf</form>
                         </li>
-                        <li class="li-drop"><a class="dropdown-item anchor-drop" onclick="event.preventDefault();
-                            document.querySelector('#form-destroy').submit()";>Elimina account</a>
-                            <form id="form-destroy" action="" method="POST" class="d-none">
-                                @csrf
-                                @method('delete')
-                            </form>
-                        </li>
-                        <li class="li-drop"><a class="dropdown-item anchor-drop" href="#">Something else here</a></li>
                     </ul>
                 </li>
                 @endguest
-                {{-- <li class="dropdown li-drop">
-                    <a href="{{route('homepage')}}" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorie
-                    </a>
-                    <ul class="dropdown-menu bg-g text-b">
-                        @foreach ($categories as $category)
-                        <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('product.category',$category)}}">{{$category->name}}</a></li>
-                        @endforeach
-                    </ul>
-                    @endguest
-                </li>  --}}
                 <span class="toggleMenu" id="span-navbar"></span>
             </div>
         </div>

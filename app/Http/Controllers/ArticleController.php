@@ -14,7 +14,7 @@ class ArticleController extends Controller
     public function index()
     {
         $title="Discover our products";
-        $articles=Article::latest()->paginate(6);
+        $articles=Article::where('is_accepted',true)->latest()->paginate(6);
         return view('article/index',compact('title','articles'));
     }
 

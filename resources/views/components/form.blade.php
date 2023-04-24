@@ -30,7 +30,7 @@
     </form>
 </form>
 @elseif(Route::currentRouteName()=='login')
-<form class="bg-b" method="POST" action="{{route('register')}}">
+<form class="bg-b" method="POST" action="{{route('login')}}">
     @csrf
     <form>
         <div class="mb-3">

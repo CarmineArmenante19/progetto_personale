@@ -21,7 +21,7 @@
       <h5 class="card-title">{{$categoryArticle->price}}</h5>
       <h5 class="card-title">{{$categoryArticle->category->name}}</h5>
       <h5 class="card-title">Pubblicato da:{{$categoryArticle->user->name}}</h5>
-      <a href="{{route('article.detail',compact('article'))}}" class="btn btn-primary">Detail</a>
+      <a href="{{route('article.detail',$categoryArticle->id)}}" class="btn btn-primary">Detail</a>
     </div>
 </div>
 @elseif(Route::currentRouteName()=='article.index')

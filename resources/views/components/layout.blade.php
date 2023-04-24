@@ -22,8 +22,14 @@
         {{session('message')}}
     </div>
     @endif
+    @if (session('access.denied'))
+    <div class="alert alert-success">
+        {{session('access.denied')}}
+    </div>
+    @endif
     <x-navbar/>
     {{$slot}}
+    <x-footer/>
     {{-- Font awesome script --}}
     <script src="https://kit.fontawesome.com/df1c9bee87.js" crossorigin="anonymous"></script>
     {{-- Anime js --}}

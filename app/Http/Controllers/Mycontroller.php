@@ -9,7 +9,7 @@ class Mycontroller extends Controller
 {
     public function homepage(){
         $title='C.A. Products';
-        $articles=Article::latest()->paginate(3);
+        $articles=Article::where('is_accepted',true)->latest()->paginate(3);
         return view('welcome',compact('title','articles'));
     }
 }

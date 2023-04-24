@@ -48,7 +48,7 @@
     </div>
 </div>
 @elseif(Route::currentRouteName()=='article.category')
-<div class="container-fluid create-container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="display-1 text-g">{{$title}}</h1>
@@ -56,7 +56,7 @@
     </div>
 </div>
 @elseif(Route::currentRouteName()=='article.detail')
-<div class="container-fluid create-container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="display-1 text-g">{{$title}}</h1>
