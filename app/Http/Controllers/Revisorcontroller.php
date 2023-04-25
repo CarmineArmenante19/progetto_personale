@@ -26,6 +26,9 @@ class Revisorcontroller extends Controller
         
         // Prendere un solo id
         Session::put('last_article_id',$article->id);
+
+        // Prendere più id
+        // Session::push('last_article_id',$article);
         
         return redirect()->back()->with('message','complimenti hai accetato l\'articolo');
     }
@@ -34,7 +37,10 @@ class Revisorcontroller extends Controller
         $article->setAccepted(false);
         
         // Prendere un solo id
-        Session::put('last_article_id',$article->id);        
+        Session::put('last_article_id',$article->id);   
+        
+        // Session::push('last_article_id',$article);
+        
         
         return redirect()->back()->with('message','complimenti hai rifiutato l\'articolo');
     }
@@ -56,10 +62,17 @@ class Revisorcontroller extends Controller
         $lastArticleId=Session::get('last_article_id');
         
         // Recupera il singolo annuncio precedente e annulla l'ultima operazione
-        $lastArticleId=Article::findOrFail('last_article_id');
+        $lastArticleId=Article::findOrFail($lastArticleId);
         $lastArticleId->is_accepted=null;
         $lastArticleId->save();
         
+        // $lastArticles=Session::get('last_article_id');
+        // foreach ($lastArticles as $lastArticle)
+        // {
+        //     $lastArticle->is_accepted=null;
+        //     $lastArticle->save();
+        // }
+
         // Rimuovi l'id dell'annuncio dalla sessione
         
         Session::forget('last_article_id');
