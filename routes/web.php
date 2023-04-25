@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 //* HOMEPAGE
 Route::get('/',[Mycontroller::class,'homepage'] )->name('homepage');
-// *Middleware
+// *Middleware article
 Route::middleware(['auth'])->group(function()
 {
     //* Article
@@ -27,16 +27,24 @@ Route::middleware(['auth'])->group(function()
     Route::get('/article/detail/{article}',[ArticleController::class,'show'])->name('article.detail');
 });
 
-// *Revisor
-Route::get('/revisor/home',[Revisorcontroller::class,'index'])->middleware('IsRevisor')->name('revisor.index');
+// *Middleware revisor
+Route::middleware(['IsRevisor'])->group(function()
+{
+    // *Revisor
+    Route::get('/revisor/home',[Revisorcontroller::class,'index'])->name('revisor.index');
+    
+    // *Revisor accetta annuncio
+    
+    Route::patch('/accetta/articolo/{article}',[Revisorcontroller::class,'acceptArticle'])->name('revisor.accept_article');
+    
+    // *Revisor rifiuta articolo
+    
+    Route::patch('/rifiuta/articolo/{article}',[Revisorcontroller::class,'rejecttArticle'])->name('revisor.reject_article');
 
-// *Revisor accetta annuncio
-
-Route::patch('/accetta/articolo/{article}',[Revisorcontroller::class,'acceptArticle'])->middleware('IsRevisor')->name('revisor.accept_article');
-
-// *Revisor rifiuta articolo
-
-Route::patch('/rifiuta/articolo/{article}',[Revisorcontroller::class,'rejecttArticle'])->middleware('IsRevisor')->name('revisor.reject_article');
+    // *Rotta annulamento operazione
+    
+    Route::get('/revisor/undo',[Revisorcontroller::class,'undo'])->name('revisor.undo');
+});
 
 // *Richiesta revisore
 
@@ -45,4 +53,3 @@ Route::get('/diveta/revisore',[Revisorcontroller::class,'becomeRevisor'])->middl
 // *Rendi revisore
 
 Route::get('/rendi/revisore/{user}',[Revisorcontroller::class,'makeRevisor'])->name('make.revisor');
-

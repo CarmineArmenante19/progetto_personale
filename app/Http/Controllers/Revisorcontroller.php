@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Session;
 
 class Revisorcontroller extends Controller
 {
@@ -22,11 +23,16 @@ class Revisorcontroller extends Controller
     {
         $article->setAccepted(true);
 
+        Session::put('last_article_id',$article->id);
+
        return redirect()->back()->with('message','complimenti hai accetato l\'articolo');
     }
     public function rejecttArticle(Article $article)
     {
         $article->setAccepted(false);
+
+        Session::put('last_article_id',$article->id);
+
 
        return redirect()->back()->with('message','complimenti hai rifiutato l\'articolo');
     }
@@ -41,5 +47,24 @@ class Revisorcontroller extends Controller
     {
         Artisan::call('presto:makeUserRevisor',['email'=>$user->email]);
         return redirect('/')->with('message','complimenti hai reso l\'utente revisore');
+    }
+
+    public function undo()
+    {
+        $lastArticleId=Session::get('last_article_id');
+
+        // Recupera l'annuncio precedente e annulla l'ultima operazione
+
+        $lastArticleId=Article::findOrFail($lastArticleId);
+        $lastArticleId->is_accepted=null;
+        $lastArticleId->save();
+
+        // Rimuovi l'id dell'annuncio dalla sessione
+
+        Session::forget('last_article_id');
+
+        // Reinderizza alla pagina precedente
+
+        return back();
     }
 }
