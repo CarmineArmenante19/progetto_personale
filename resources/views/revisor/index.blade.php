@@ -54,9 +54,12 @@
             </form>
         </div>
         @endif
+        @if (Session::has('last_article_id'))
         <div class="col-12">
             <a href="{{route('revisor.undo')}}">Annulla</a>
         </div>
+        @endif
     </div>
 </x-layout>
+            
                 
