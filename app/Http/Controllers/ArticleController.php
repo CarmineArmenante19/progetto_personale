@@ -72,4 +72,12 @@ class ArticleController extends Controller
     {
         //
     }
+
+    public function searchArticle(Request $request)
+    {
+        $articles=Article::search($request->searched)->where('is_accepted',true)->paginate(6);
+
+        return redirect(route('article.index',compact('articles')));
+
+    }
 }

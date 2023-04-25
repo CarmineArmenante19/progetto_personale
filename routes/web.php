@@ -48,8 +48,12 @@ Route::middleware(['IsRevisor'])->group(function()
 
 // *Richiesta revisore
 
-Route::get('/diveta/revisore',[Revisorcontroller::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
+Route::get('/diventa/revisore',[Revisorcontroller::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
 
 // *Rendi revisore
 
 Route::get('/rendi/revisore/{user}',[Revisorcontroller::class,'makeRevisor'])->name('make.revisor');
+
+// *Rotta per ricerca
+
+Route::get('/ricerca/articolo',[ArticleController::class,'searchArticle'])->name('article.search');

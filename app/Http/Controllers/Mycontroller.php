@@ -12,4 +12,6 @@ class Mycontroller extends Controller
         $articles=Article::where('is_accepted',true)->latest()->paginate(3);
         return view('welcome',compact('title','articles'));
     }
+
+
 }

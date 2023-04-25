@@ -42,6 +42,13 @@
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown li-drop">
+                <form action="{{route('article.search')}}" method="GET">
+                    @csrf
+                    <input type="search" name="searched" placeholder="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+                </li>
                 @endguest
                 <span class="toggleMenu" id="span-navbar"></span>
             </div>

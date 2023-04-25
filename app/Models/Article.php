@@ -6,10 +6,11 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory,Searchable;
 
     protected $fillable=
     [
@@ -20,6 +21,23 @@ class Article extends Model
         'category_id',
         'user_id'
     ];
+
+    public function toSearchableArray()
+    {
+        $category=$this->category;
+
+        $array=
+        [
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'brand'=>$this->brand,
+            'description'=>$this->description,
+            'price'=>$this->price,
+            'category'=>$category
+        ];
+
+        return $array;
+    }
 
     public function category()
     {

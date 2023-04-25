@@ -2,14 +2,20 @@
     <x-header title="{{$title}}"/>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            @foreach ($articles as $article)
+            @forelse ($articles as $article)
             <div class="col-12 col-md-4">
                 <x-card :article="$article"/>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12 col-md-6">
+                <h2>Non esiste ancora nessun articolo per questa ricerca</h2>
+                <p>Corri a creare il primo:</p>
+                <button class="btn btn-success"><a href="{{route('article.create')}}">Crea articolo</a></button>
+            </div>
         </div>
     </div>
-    <div class="container-fluid">
+    @endforelse
+    {{-- <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-6">
                 <div>
@@ -17,6 +23,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-layout>
+        
 
