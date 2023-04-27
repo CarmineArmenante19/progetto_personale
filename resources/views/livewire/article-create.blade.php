@@ -19,7 +19,7 @@
                       </div>
                       <div class="mb-3">
                         <label  class="form-label">Category</label>
-                        <select wire:model.debounce.lazy="category" class="form-control @error('category') is-invalid @enderror">
+                        <select wire:model.defer="category" class="form-control @error('category') is-invalid @enderror">
                             <option value="">Seleziona una categoria</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>

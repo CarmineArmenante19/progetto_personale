@@ -57,3 +57,7 @@ Route::get('/rendi/revisore/{user}',[Revisorcontroller::class,'makeRevisor'])->n
 // *Rotta per ricerca
 
 Route::get('/ricerca/articolo',[ArticleController::class,'searchArticle'])->name('article.search');
+
+//* Rotta per impostare una nuova lingua
+
+Route::get('/language/{language}',[Mycontroller::class,'selectLanguage'])->name('language.select');
