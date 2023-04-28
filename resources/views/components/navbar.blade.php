@@ -42,6 +42,15 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <x-language lang="it"/>
+                </li>
+                <li class="nav-item">
+                    <x-language lang="en"/>
+                </li>
+                <li class="nav-item">
+                    <x-language lang="es"/>
+                </li>
                 <li class="dropdown li-drop">
                 <form action="{{route('article.search')}}" method="GET">
                     @csrf

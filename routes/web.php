@@ -60,4 +60,4 @@ Route::get('/ricerca/articolo',[ArticleController::class,'searchArticle'])->name
 
 //* Rotta per impostare una nuova lingua
 
-Route::get('/language/{language}',[Mycontroller::class,'selectLanguage'])->name('language.select');
+Route::get('/language/{lang}',[Mycontroller::class,'selectLanguage'])->name('language.select');

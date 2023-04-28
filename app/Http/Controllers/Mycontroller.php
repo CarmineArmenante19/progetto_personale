@@ -14,9 +14,10 @@ class Mycontroller extends Controller
         return view('welcome',compact('title','articles'));
     }
 
-    public function selectLanguage($lang)
+    public function selectLanguage($language)
     {
-        Session::put('language',$lang);
+        Session::put('language',$language);
+        // dd($lang);
         return redirect()->back();
     }
 
