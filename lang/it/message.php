@@ -2,5 +2,5 @@
 
 return 
 [
-    'message'=>'Benvenuti sul mio sito',
+    'welcome'=>'Benvenuti sul mio sito',
 ];

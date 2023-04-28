@@ -37,6 +37,28 @@
                         @enderror
                       </div>
                       <div class="mb-3">
+                        <input type="file" name="images" wire:model="temporary_images" multiple class="form-control @error('temporary_images.*') is-invalid @enderror">
+                        @error('temporary_images.*')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      @if (!empty($images))
+                          <div class="row">
+                            <div class="col-12">
+                              <p>Photo prewiev:</p>
+                              <div>
+                                @foreach ($images as $key=>$image)
+                                    <div class="col my-3">
+                                      <div class="sfondo-annunci" style="background-image:url({{$image->temporaryUrl()}})">
+                                        <button type="button" class="btn btn-danger" wire:click="removeImage({{$key}})">Elimina foto</button>
+                                      </div>
+                                    </div>
+                                @endforeach
+                              </div>
+                            </div>
+                          </div>
+                      @endif
+                      <div class="mb-3">
                         <label  class="form-label">Price</label>
                         <input type="number" step="0.1" class="form-control @error('price') is-invalid @enderror" wire:model.debounce.lazy="price">
                         @error('price')
