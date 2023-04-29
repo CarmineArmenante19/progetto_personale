@@ -4,21 +4,24 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <!-- Slider main container -->
+                    @if (!$article->images)
                     <div class="swiper swiper-detail">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide"><img src="https://picsum.photos/300" alt=""></div>
-                            <div class="swiper-slide"><img src="https://picsum.photos/301" alt=""></div>
-                            <div class="swiper-slide"><img src="https://picsum.photos/302" alt=""></div>
-                            <div class="swiper-slide"><img src="https://picsum.photos/303" alt=""></div>
-                            <div class="swiper-slide"><img src="https://picsum.photos/304" alt=""></div>
+                                @foreach ($article->images as $image)
+                                <div class="swiper-slide"><img src="{{Storage::url($image->path)}}" alt="immagini prodotto"></div>
+                                @endforeach
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                        @else
+                        <div>
+                            <h1 class="text-g text-center">Non ci sono immagini per questo pordotto</h1>
+                        </div>
+                        @endif
                     </div>
-                </div>
                 <div class="col-12 col-md-6">
                     <h2>Venduto da:{{$article->user->name}}</h2>
                     <h3>{{$article->brand}}</h3>
