@@ -25,7 +25,7 @@ class Article extends Model
     public function toSearchableArray()
     {
         $category=$this->category;
-
+        $user=$this->user;
         $array=
         [
             'id'=>$this->id,
@@ -33,7 +33,8 @@ class Article extends Model
             'brand'=>$this->brand,
             'description'=>$this->description,
             'price'=>$this->price,
-            'category'=>$category
+            'category'=>$category,
+            'user_id'=>$user
         ];
 
         return $array;

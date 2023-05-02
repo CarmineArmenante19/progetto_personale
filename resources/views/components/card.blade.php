@@ -1,6 +1,6 @@
 @if(Route::currentRouteName()=='homepage')
 <div class="card" style="width: 18rem;">
-  <img src="{{!$article->images()->get()->isEmpty() ? Storage::url($article->images()->first()->path) : '/storage/images/no-photos.png'}}">
+  <img src="{{!$article->images()->get()->isEmpty() ?$article->images()->first()->getUrl(300,300) : '/storage/images/no-photos.png'}}">
   <div class="card-body">
     <h5 class="card-title">{{$article->name}}</h5>
     <h5 class="card-title">{{$article->brand}}</h5>
@@ -13,7 +13,7 @@
 </div>
 @elseif(Route::currentRouteName()=='article.category')
 <div class="card" style="width: 18rem;">
-<img src="{{!$categoryArticle->images()->get()->isEmpty() ? Storage::url($categoryArticle->images()->first()->path) : '/storage/images/no-photos.png'}}">
+<img src="{{!$categoryArticle->images()->get()->isEmpty() ? $categoryArticle->images()->first()->getUrl(300,300) : '/storage/images/no-photos.png'}}">
 <div class="card-body">
   <h5 class="card-title">{{$categoryArticle->name}}</h5>
   <h5 class="card-title">{{$categoryArticle->brand}}</h5>
@@ -26,7 +26,7 @@
 </div>
 @elseif(Route::currentRouteName()=='article.index')
 <div class="card" style="width: 18rem;">
-<img src="{{!$article->images()->get()->isEmpty() ? Storage::url($article->images()->first()->path) : '/storage/images/no-photos.png'}}">
+<img src="{{!$article->images()->get()->isEmpty() ?$article->images()->first()->getUrl(300,300) : '/storage/images/no-photos.png'}}">
 <div class="card-body">
 <h5 class="card-title">{{$article->name}}</h5>
 <h5 class="card-title">{{$article->brand}}</h5>
@@ -39,7 +39,7 @@
 </div>
 @elseif(Route::currentRouteName()=='article.search')
 <div class="card" style="width: 18rem;">
-<img src="{{!$article->images()->get()->isEmpty() ? Storage::url($article->images()->first()->path) : '/storage/images/no-photos.png'}}">
+<img src="{{!$article->images()->get()->isEmpty() ?$article->images()->first()->getUrl(300,300) : '/storage/images/no-photos.png'}}">
 <div class="card-body">
 <h5 class="card-title">{{$article->name}}</h5>
 <h5 class="card-title">{{$article->brand}}</h5>
