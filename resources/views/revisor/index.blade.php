@@ -15,7 +15,27 @@
                 @if (!$article_to_check->images)
                     @foreach ($article_to_check->images as $image)
                         <div>
-                            <img src="{{Storage::url($image->path)}}" alt="immagini articolo">
+                            <img src="{{$image->getUrl(300,300)}}" alt="immagini articolo">
+                        </div>
+                        <div class="col-12">
+                            <h5>tags</h5>
+                            <div>
+                                @if($image->labels)
+                                @foreach ($image->labels as $label)
+                                    <p>{{$label}}</p>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card-body">
+                                <h5>Revsione immagini</h5>
+                                <p>Adulti: <span>{{$image->adult}}</span></p>
+                                <p>Satira: <span>{{$image->spoof}}</span></p>
+                                <p>Medicina: <span>{{$image->medical}}</span></p>
+                                <p>Violenza: <span>{{$image->violence}}</span></p>
+                                <p>Contenuto ammicante: <span>{{$image->racy}}</span></p>
+                            </div>
                         </div>
                     @endforeach
                 @else
