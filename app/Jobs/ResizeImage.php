@@ -38,13 +38,15 @@ class ResizeImage implements ShouldQueue
         
         
         $srcPath = storage_path() . '/app/public/' . $this->path . '/' . $this->fileName;
-        if (!file_exists($srcPath)) {
+        if (!file_exists($srcPath))
+        {
             throw new FileNotFoundException('Could not find the image `'.$srcPath.'`.');
         }
         $destPath = storage_path() . '/app/public/' . $this->path . "/crop_{$w}x{$h}_" . $this->fileName;
         
         
-        $croppedImage=Image::load($srcPath)->crop(Manipulations::CROP_CENTER,$w,$h);
+        $croppedImage=Image::load($srcPath)->crop(Manipulations::CROP_CENTER,$w,$h)->watermark(base_path('storage/app/public/images/gigante-sorridente.jpg'))
+        ->watermarkPosition('bottom-right');
         $croppedImage->save($destPath);
 
         
