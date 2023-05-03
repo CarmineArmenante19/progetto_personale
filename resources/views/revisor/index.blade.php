@@ -12,10 +12,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6">
-                @if (!$article_to_check->images)
+                @if ($article_to_check->images)
                     @foreach ($article_to_check->images as $image)
                         <div>
-                            <img src="{{$image->getUrl(300,300)}}" alt="immagini articolo">
+                            <img src="{{$image->getUrl(300,300)}}" class="img-fluid" alt="immagini articolo">
                         </div>
                         <div class="col-12">
                             <h5>tags</h5>
@@ -38,10 +38,8 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                
             @endif
-            <div class="col-12 col-md-6 d-flex justify-content-start align-items-center">
+            <div class="d-flex justify-content-start align-items-center">
                 <div>
                     <h1 class="card-title">{{$article_to_check->name}}</h1>
                     <h5 class="card-title">{{$article_to_check->brand}}</h5>
@@ -72,6 +70,7 @@
             <a href="{{route('revisor.undo')}}">Annulla</a>
         </div>
         @endif
+    </div>
     </div>
 </x-layout>
             
