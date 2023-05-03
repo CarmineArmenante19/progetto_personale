@@ -30,11 +30,11 @@
                         <div class="col-3">
                             <div class="card-body">
                                 <h5>Revsione immagini</h5>
-                                <p>Adulti: <span>{{$image->adult}}</span></p>
-                                <p>Satira: <span>{{$image->spoof}}</span></p>
-                                <p>Medicina: <span>{{$image->medical}}</span></p>
-                                <p>Violenza: <span>{{$image->violence}}</span></p>
-                                <p>Contenuto ammicante: <span>{{$image->racy}}</span></p>
+                                <p>Adulti: <span class="{{$image->adult}}"></span></p>
+                                <p>Satira: <span class="{{$image->spoof}}"></span></p>
+                                <p>Medicina: <span class="{{$image->medical}}"></span></p>
+                                <p>Violenza: <span class="{{$image->violence}}"></span></p>
+                                <p>Contenuto ammicante: <span class="{{$image->racy}}"></span></p>
                             </div>
                         </div>
                     @endforeach
