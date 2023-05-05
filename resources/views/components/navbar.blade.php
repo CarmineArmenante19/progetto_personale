@@ -13,7 +13,7 @@
                         <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('article.create')}}">Crea il tuo articolo</a></li>
                     </ul>
                 </li>
-                <li class="dropdown li-drop">
+                <li class="dropdown li-drop" id="dropdown-navbar">
                     <a href="" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
                         Category
                     </a>
