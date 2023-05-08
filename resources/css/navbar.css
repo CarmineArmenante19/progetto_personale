@@ -13,7 +13,7 @@
 }
 
 .active{
-    width: 800px;
+    width: 870px;
 }
 
 
@@ -113,3 +113,46 @@
     margin-top: 35px;
 }
 
+.revisor-anchor
+{
+    position: relative;
+}
+
+.revisor-span
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--b);
+    border-radius: 50%;
+    color: red;
+    top: 0px;
+    left: 162px;
+}
+
+.anchor-drop:hover .revisor-span
+{
+    border: 2px solid var(--w);
+    color: var(--g);
+}
+
+.logo-lingue
+{
+    height: 28px;
+}
+
+@media screen and (max-width:700px)
+{
+    .active
+    {
+        height: 200px;
+    }
+    
+    .navigation
+    {
+        flex-direction: column;
+    }
+}

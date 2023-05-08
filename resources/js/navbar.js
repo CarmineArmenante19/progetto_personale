@@ -1,7 +1,6 @@
 let toggleMenu=document.querySelector('.toggleMenu');
 let navigation=document.querySelector('.navigation');
 let dropdown_navbar=document.querySelectorAll('#dropdown-navbar');
-let span_navbar=document.querySelector('#span-navbar');
 let logout_button=document.querySelector('#logout-button');
 let logout_form=document.querySelector('#logout-form');
 
@@ -19,17 +18,16 @@ if (dropdown_navbar)
     drop.addEventListener('mouseenter', () =>
     {
     menu.classList.add('hover');
-    span_navbar.style.display = 'none';
+    toggleMenu.style.display = 'none';
     });
 
     drop.addEventListener('mouseleave', () =>
     {
         menu.classList.remove('hover');
-        span_navbar.style.display = 'flex';
+        toggleMenu.style.display = 'flex';
     });
 });
 }
-  
 
 
 
@@ -41,3 +39,5 @@ if (logout_button) {
         logout_form.submit();
     })
 }
+
+

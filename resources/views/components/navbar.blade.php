@@ -8,8 +8,13 @@
                 <li class="li-drop"><a class="anchor-drop" href="{{route('login')}}">Login</a></li>
                 @else
                 <li class="dropdown li-drop" id="dropdown-navbar">
-                    <a href="{{route('article.index')}}" class="dropdown-toggle anchor-drop"  aria-expanded="false">Article</a>
+                    <a href="" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                    Article
+                    </a>
                     <ul class="dropdown-menu bg-g text-b">
+                    <li class="li-drop">
+                        <a href="{{route('article.index')}}" class="anchor-drop"   aria-expanded="false">Tutti gli articoli</a>
+                    </li>
                         <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('article.create')}}">Crea il tuo articolo</a></li>
                     </ul>
                 </li>
@@ -24,10 +29,9 @@
                     </ul>
                 </li>
                 @if(Auth::user()->is_revisor)
-                <li class="li-drop"><a class="dropdown-item anchor-drop" href="{{route('revisor.index')}}">Zona revisore
-                <span>
+                <li class="li-drop"><a class="dropdown-item anchor-drop revisor-anchor" href="{{route('revisor.index')}}">Zona revisore
+                <span class="revisor-span">
                     {{App\Models\Article::toBeRevisionedCount()}}
-                    <span>unread messages</span>
                 </span>
                 </a>
             </li>
@@ -42,14 +46,24 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <x-language lang="it"/>
-                </li>
-                <li class="nav-item">
-                    <x-language lang="en"/>
-                </li>
-                <li class="nav-item">
-                    <x-language lang="es"/>
+                <li class="dropdown li-drop" id="dropdown-navbar">
+                    <a href="" class="dropdown-toggle anchor-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="logo-lingue" src="/storage/images/language.png" alt="immagine lingue">
+                    </a>
+                        <ul class="dropdown-menu bg-g text-b">
+                            <li class="li-drop d-flex justify-content-evenly align-items-center">
+                                <x-language lang="it"/>
+                                Italiano
+                            </li>
+                            <li class="li-drop d-flex justify-content-evenly align-items-center">
+                                <x-language lang="en"/>
+                                Inglese
+                            </li>
+                            <li class="li-drop d-flex justify-content-evenly align-items-center">
+                                <x-language lang="es"/>
+                                Spagnolo
+                            </li>
+                        </ul>
                 </li>
                 <li class="dropdown li-drop">
                 <form action="{{route('article.search')}}" method="GET">
@@ -59,8 +73,11 @@
                 </form>
                 </li>
                 @endguest
-                <span class="toggleMenu" id="span-navbar"></span>
+                    <span class="toggleMenu"></span>
             </div>
         </div>
     </div>
 </div>
+
+
+
